@@ -2,8 +2,9 @@ package gameController;
 
 import board.Board;
 import board.Piece;
+import board.Position;
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
     private final Color color;
 
     public ChessPiece(Board board, Color color) {
@@ -13,5 +14,11 @@ public class ChessPiece extends Piece {
 
     public Color getColor() {
         return color;
+    }
+
+    protected boolean isThereOppenentPiece (Position position) {
+        ChessPiece p = (ChessPiece) getBoard().piece(position);
+
+        return p != null && p.getColor() != color;
     }
 }
