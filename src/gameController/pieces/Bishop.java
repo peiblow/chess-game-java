@@ -5,14 +5,14 @@ import board.Position;
 import gameController.ChessPiece;
 import gameController.Color;
 
-public class King extends ChessPieceMoveMat {
-    public King(Board board, Color color) {
-        super(board, color, false);
+public class Bishop extends ChessPieceMoveMat {
+    public Bishop(Board board, Color color) {
+        super(board, color, true);
     }
 
     @Override
     public String toString() {
-        return "K";
+        return "B";
     }
 
     @Override
@@ -21,18 +21,6 @@ public class King extends ChessPieceMoveMat {
         boolean[][] mat = getMat();
 
         setMat(new boolean[getBoard().getRows()][getBoard().getColumns()]);
-
-        p.setValues(position.getRow() - 1, position.getColumn());
-        above();
-
-        p.setValues(position.getRow() + 1, position.getColumn());
-        below();
-
-        p.setValues(position.getRow(), position.getColumn() - 1);
-        left();
-
-        p.setValues(position.getRow(), position.getColumn() + 1);
-        right();
 
         p.setValues(position.getRow() - 1, position.getColumn() - 1);
         northWest();
