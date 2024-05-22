@@ -25,25 +25,25 @@ public class Knight extends ChessPieceMoveMat{
         above();
 
         p.setValues(position.getRow() - 2, position.getColumn() - 1);
-        below();
+        above();
 
         p.setValues(position.getRow() - 2, position.getColumn() + 1);
-        left();
+        right();
 
         p.setValues(position.getRow() - 1, position.getColumn() + 2);
         right();
 
         p.setValues(position.getRow() + 1, position.getColumn() + 2);
-        northWest();
+        below();
 
         p.setValues(position.getRow() + 2, position.getColumn() + 1);
-        northEast();
+        below();
 
         p.setValues(position.getRow() + 2, position.getColumn() - 1);
-        southWest();
+        left();
 
         p.setValues(position.getRow() + 1, position.getColumn() - 2);
-        southEast();
+        left();
 
         return getMat();
     }

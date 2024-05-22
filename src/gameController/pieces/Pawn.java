@@ -23,7 +23,7 @@ public class Pawn extends ChessPieceMoveMat{
 
         if (getColor() == Color.WHITE) {
             p.setValues(position.getRow() - 1, position.getColumn());
-            if (!getBoard().thereIsAPiece(p)) above();
+            if (getBoard().positionExists(p)) above();
 
             p.setValues(position.getRow() - 2, position.getColumn());
             Position p2 = new Position(position.getRow() - 1, position.getColumn());
@@ -38,7 +38,7 @@ public class Pawn extends ChessPieceMoveMat{
             if (getBoard().positionExists(p) && isThereOpponentPiece(p)) northEast();
         } else {
             p.setValues(position.getRow() + 1, position.getColumn());
-            if (!getBoard().thereIsAPiece(p)) below();
+            below();
 
             p.setValues(position.getRow() + 2, position.getColumn());
             Position p2 = new Position(position.getRow() + 1, position.getColumn());

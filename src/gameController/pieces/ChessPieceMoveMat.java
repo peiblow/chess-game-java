@@ -34,11 +34,15 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
         return p == null || isThereOpponentPiece(position);
     }
 
+    public void move() {
+        if (!getBoard().thereIsAPiece(p) || isThereOpponentPiece(position)) {
+            mat[p.getRow()][p.getColumn()] = true;
+        }
+    }
+
     public void above() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                     mat[p.getRow()][p.getColumn()] = true;
@@ -52,9 +56,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void below() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -70,9 +72,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void left() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -88,9 +88,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void right() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -106,9 +104,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void northWest() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -125,9 +121,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void northEast() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -144,9 +138,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void southWest() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
@@ -163,9 +155,7 @@ public abstract class ChessPieceMoveMat extends ChessPiece {
     }
     public void southEast() {
         if (!this.multipleMoves) {
-            if (getBoard().positionExists(p) && canMove(p)) {
-                mat[p.getRow()][p.getColumn()] = true;
-            }
+            if (getBoard().positionExists(p)) move();
         } else {
             while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
                 if (canMove(p)) {
